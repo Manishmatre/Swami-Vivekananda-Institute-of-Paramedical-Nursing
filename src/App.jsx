@@ -10,6 +10,7 @@ import Courses from './pages/Courses'
 import Admissions from './pages/Admissions'
 import Faculty from './pages/Faculty'
 import Gallery from './pages/Gallery'
+import Results from './pages/Results'
 import Contact from './pages/Contact'
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             <Route path="/admissions" element={<Admissions />} />
             <Route path="/faculty" element={<Faculty />} />
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/results" element={<Results />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>

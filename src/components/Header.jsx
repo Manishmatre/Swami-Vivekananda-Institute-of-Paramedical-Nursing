@@ -22,6 +22,7 @@ const Header = () => {
     { name: 'Admissions', href: '/admissions' },
     { name: 'Faculty', href: '/faculty' },
     { name: 'Gallery', href: '/gallery' },
+    { name: 'Results', href: '/results' },
     { name: 'Contact', href: '/contact' },
   ]
 

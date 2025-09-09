@@ -60,12 +60,12 @@ const Footer = () => {
           <div className={`fade-in-up ${footerVisible ? 'animate' : ''} stagger-3`}>
             <h3 className="text-lg font-semibold mb-4">Popular Courses</h3>
             <ul className="space-y-2">
-              <li className={`fade-in-up ${footerVisible ? 'animate' : ''}`} style={{animationDelay: '0.1s'}}><span className="text-gray-300 text-sm hover:text-orange-400 transition-all cursor-default hover:translate-x-1 transform duration-300">B.Sc Nursing</span></li>
-              <li className={`fade-in-up ${footerVisible ? 'animate' : ''}`} style={{animationDelay: '0.2s'}}><span className="text-gray-300 text-sm hover:text-orange-400 transition-all cursor-default hover:translate-x-1 transform duration-300">GNM (General Nursing)</span></li>
-              <li className={`fade-in-up ${footerVisible ? 'animate' : ''}`} style={{animationDelay: '0.3s'}}><span className="text-gray-300 text-sm hover:text-orange-400 transition-all cursor-default hover:translate-x-1 transform duration-300">ANM (Auxiliary Nursing)</span></li>
-              <li className={`fade-in-up ${footerVisible ? 'animate' : ''}`} style={{animationDelay: '0.4s'}}><span className="text-gray-300 text-sm hover:text-orange-400 transition-all cursor-default hover:translate-x-1 transform duration-300">Medical Lab Technology</span></li>
-              <li className={`fade-in-up ${footerVisible ? 'animate' : ''}`} style={{animationDelay: '0.5s'}}><span className="text-gray-300 text-sm hover:text-orange-400 transition-all cursor-default hover:translate-x-1 transform duration-300">Radiology Technology</span></li>
-              <li className={`fade-in-up ${footerVisible ? 'animate' : ''}`} style={{animationDelay: '0.6s'}}><span className="text-gray-300 text-sm hover:text-orange-400 transition-all cursor-default hover:translate-x-1 transform duration-300">Operation Theatre Technology</span></li>
+              <li className={`fade-in-up ${footerVisible ? 'animate' : ''}`} style={{animationDelay: '0.1s'}}><span className="text-gray-300 text-sm hover:text-orange-400 transition-all cursor-default hover:translate-x-1 transform duration-300">DMLT</span></li>
+              <li className={`fade-in-up ${footerVisible ? 'animate' : ''}`} style={{animationDelay: '0.2s'}}><span className="text-gray-300 text-sm hover:text-orange-400 transition-all cursor-default hover:translate-x-1 transform duration-300">BMLT</span></li>
+              <li className={`fade-in-up ${footerVisible ? 'animate' : ''}`} style={{animationDelay: '0.3s'}}><span className="text-gray-300 text-sm hover:text-orange-400 transition-all cursor-default hover:translate-x-1 transform duration-300">DPT & BPT</span></li>
+              <li className={`fade-in-up ${footerVisible ? 'animate' : ''}`} style={{animationDelay: '0.4s'}}><span className="text-gray-300 text-sm hover:text-orange-400 transition-all cursor-default hover:translate-x-1 transform duration-300">BCA & BBA</span></li>
+              <li className={`fade-in-up ${footerVisible ? 'animate' : ''}`} style={{animationDelay: '0.5s'}}><span className="text-gray-300 text-sm hover:text-orange-400 transition-all cursor-default hover:translate-x-1 transform duration-300">ANM Nursing</span></li>
+              <li className={`fade-in-up ${footerVisible ? 'animate' : ''}`} style={{animationDelay: '0.6s'}}><span className="text-gray-300 text-sm hover:text-orange-400 transition-all cursor-default hover:translate-x-1 transform duration-300">B.Pharm & D.Pharm</span></li>
             </ul>
           </div>
 
@@ -76,25 +76,25 @@ const Footer = () => {
               <div className={`flex items-start space-x-3 fade-in-up ${footerVisible ? 'animate' : ''}`} style={{animationDelay: '0.1s'}}>
                 <MapPin size={16} className="text-orange-500 mt-1 flex-shrink-0" />
                 <p className="text-gray-300 text-sm">
-                  123 Healthcare Avenue,<br />
-                  Medical District,<br />
-                  City - 123456
+                  Bakhrabad Sabuj Pally,<br />
+                  Paschim Medinipur,<br />
+                  West Bengal
                 </p>
               </div>
               <div className={`flex items-center space-x-3 fade-in-up ${footerVisible ? 'animate' : ''}`} style={{animationDelay: '0.2s'}}>
                 <Phone size={16} className="text-orange-500 flex-shrink-0" />
-                <p className="text-gray-300 text-sm hover:text-orange-400 transition-colors cursor-pointer">+91 98765 43210</p>
+                <p className="text-gray-300 text-sm hover:text-orange-400 transition-colors cursor-pointer">+91 79082 38939 / 99339 70075</p>
               </div>
               <div className={`flex items-center space-x-3 fade-in-up ${footerVisible ? 'animate' : ''}`} style={{animationDelay: '0.3s'}}>
                 <Mail size={16} className="text-orange-500 flex-shrink-0" />
-                <p className="text-gray-300 text-sm hover:text-orange-400 transition-colors cursor-pointer">info@svipn.edu.in</p>
+                <p className="text-gray-300 text-sm hover:text-orange-400 transition-colors cursor-pointer">suvankarchanda85@gmail.com</p>
               </div>
             </div>
             
             {/* WhatsApp Button */}
             <div className="mt-4">
               <a 
-                href="https://wa.me/919876543210" 
+                href="https://wa.me/917908238939" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-2 bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors pulse-glow hover:scale-105 transform duration-200"

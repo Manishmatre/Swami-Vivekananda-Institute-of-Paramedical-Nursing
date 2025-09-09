@@ -21,10 +21,10 @@ const Home = () => {
   const [coursesRef, coursesVisible] = useScrollAnimation(0.2)
   const [quoteRef, quoteVisible] = useScrollAnimation(0.3)
   
-  const [count1, startCount1] = useCountUp(500, 2000)
+  const [count1, startCount1] = useCountUp(1000, 2000)
   const [count2, startCount2] = useCountUp(15, 2000)
-  const [count3, startCount3] = useCountUp(50, 2000)
-  const [count4, startCount4] = useCountUp(95, 2000)
+  const [count3, startCount3] = useCountUp(25, 2000)
+  const [count4, startCount4] = useCountUp(90, 2000)
   
   const counters = [count1, count2, count3, count4]
   const startCounters = [startCount1, startCount2, startCount3, startCount4]
@@ -37,51 +37,69 @@ const Home = () => {
   const highlights = [
     {
       icon: <Users className="w-8 h-8 text-orange-500" />,
-      title: "Experienced Faculty",
-      description: "Learn from industry experts and qualified medical professionals"
+      title: "Expert Faculty",
+      description: "Learn from qualified professionals with extensive industry experience"
     },
     {
       icon: <Building2 className="w-8 h-8 text-orange-500" />,
-      title: "Modern Labs",
-      description: "State-of-the-art laboratories with latest medical equipment"
+      title: "Modern Infrastructure",
+      description: "State-of-the-art laboratories and facilities with latest equipment"
     },
     {
       icon: <Stethoscope className="w-8 h-8 text-orange-500" />,
-      title: "Hospital Training",
-      description: "Hands-on clinical experience in top-tier healthcare facilities"
+      title: "Practical Training",
+      description: "Hands-on clinical experience and industry internships"
     },
     {
       icon: <TrendingUp className="w-8 h-8 text-orange-500" />,
-      title: "100% Placement Assistance",
-      description: "Guaranteed job placement support with leading healthcare institutions"
+      title: "Career Support",
+      description: "Comprehensive placement assistance and career guidance"
     }
   ]
 
   const stats = [
-    { number: 500, label: "Students Graduated", suffix: "+" },
-    { number: 15, label: "Years of Excellence", suffix: "+" },
-    { number: 50, label: "Hospital Partners", suffix: "+" },
-    { number: 95, label: "Placement Rate", suffix: "%" }
+    { number: 1000, label: "Students Enrolled", suffix: "+" },
+    { number: 15, label: "Course Programs", suffix: "+" },
+    { number: 25, label: "Expert Faculty", suffix: "+" },
+    { number: 90, label: "Placement Rate", suffix: "%" }
   ]
 
   const courses = [
     {
-      title: "B.Sc Nursing",
-      duration: "4 Years",
-      description: "Comprehensive nursing program with clinical training",
+      title: "DMLT & BMLT",
+      duration: "2-3 Years",
+      description: "Medical Laboratory Technology programs with advanced diagnostics training",
+      image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+    },
+    {
+      title: "DPT & BPT",
+      duration: "2-4 Years",
+      description: "Physiotherapy programs with rehabilitation and clinical training",
+      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+    },
+    {
+      title: "BCA & BBA",
+      duration: "3 Years",
+      description: "Computer Applications and Business Administration programs",
+      image: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+    },
+    {
+      title: "ANM Nursing",
+      duration: "2 Years",
+      description: "Auxiliary Nursing & Midwifery for community healthcare",
       image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
     },
     {
-      title: "GNM (General Nursing)",
-      duration: "3.5 Years",
-      description: "Diploma in General Nursing and Midwifery",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+      title: "B.Pharm & D.Pharm",
+      duration: "2-4 Years",
+      description: "Comprehensive pharmacy education and pharmaceutical sciences",
+      image: "https://images.unsplash.com/photo-1576602976047-174e57a47881?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
     },
     {
-      title: "Medical Lab Technology",
-      duration: "2 Years",
-      description: "Advanced laboratory techniques and diagnostics",
-      image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+      title: "BAMS (Ayurvedic)",
+      duration: "5.5 Years",
+      description: "Bachelor of Ayurvedic Medicine & Surgery with traditional knowledge",
+      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
     }
   ]
 
@@ -92,8 +110,8 @@ const Home = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
-            alt="Nursing students" 
+            src="/src/assets/hero_image.jpeg" 
+            alt="Swami Vivekananda Institute - Healthcare Education" 
             className="w-full h-full object-cover"
           />
         </div>
@@ -113,8 +131,8 @@ const Home = () => {
                   </span>
                 </h1>
                 <p className="text-xl text-gray-200 leading-relaxed max-w-2xl">
-                  With Excellence and Compassion. Join India's premier institute for 
-                  paramedical and nursing education, inspired by Swami Vivekananda's vision.
+                  Affiliated to Sikkim Skill University & Recognised by AICVT. 
+                  A premium class institute for Paramedical, Technical & Management Courses.
                 </p>
               </div>
 
@@ -131,30 +149,58 @@ const Home = () => {
               <div className="flex items-center space-x-6 pt-4">
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-5 h-5 text-green-400" />
-                  <span className="text-sm">AICTE Approved</span>
+                  <span className="text-sm">Sikkim Skill University</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-5 h-5 text-green-400" />
-                  <span className="text-sm">Government Recognized</span>
+                  <span className="text-sm">AICVT Recognised</span>
                 </div>
               </div>
             </div>
 
             <div className="hidden lg:block fade-in-right animate float-animation">
               <div className="relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                  alt="Medical students" 
-                  className="rounded-2xl shadow-2xl"
-                />
-                <div className="absolute -bottom-6 -right-6 bg-white text-primary-700 p-6 rounded-xl shadow-xl">
+                {/* Curved pattern background */}
+                <div className="absolute -inset-8 bg-gradient-to-br from-orange-400/30 to-primary-600/30 rounded-[3rem] transform rotate-3"></div>
+                <div className="absolute -inset-6 bg-gradient-to-tl from-primary-500/20 to-orange-300/20 rounded-[2.5rem] transform -rotate-2"></div>
+                
+                {/* Angular geometric shapes */}
+                <div className="absolute -top-4 -right-4 w-20 h-20 bg-orange-400/40 transform rotate-45 rounded-lg"></div>
+                <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-primary-500/40 transform rotate-12 rounded-lg"></div>
+                
+                {/* Curved decorative circles */}
+                <div className="absolute top-8 -left-4 w-12 h-12 bg-gradient-to-br from-orange-300 to-orange-400 rounded-full opacity-70"></div>
+                <div className="absolute bottom-12 -right-2 w-8 h-8 bg-gradient-to-br from-primary-400 to-primary-500 rounded-full opacity-80"></div>
+                
+                {/* Main image container with mixed borders */}
+                <div className="relative bg-white/10 backdrop-blur-sm p-3 rounded-2xl border border-white/20">
+                  <img 
+                    src="/src/assets/hero-image.png" 
+                    alt="Swami Vivekananda Institute Healthcare Education" 
+                    className="rounded-xl shadow-2xl relative z-10"
+                  />
+                  
+                  {/* Curved corner accents */}
+                  <div className="absolute top-0 left-0 w-6 h-6 border-l-4 border-t-4 border-orange-400 rounded-tl-xl"></div>
+                  <div className="absolute top-0 right-0 w-6 h-6 border-r-4 border-t-4 border-primary-500 rounded-tr-xl"></div>
+                  <div className="absolute bottom-0 left-0 w-6 h-6 border-l-4 border-b-4 border-primary-500 rounded-bl-xl"></div>
+                  <div className="absolute bottom-0 right-0 w-6 h-6 border-r-4 border-b-4 border-orange-400 rounded-br-xl"></div>
+                </div>
+                
+                {/* Enhanced rating badge with angular design */}
+                <div className="absolute -bottom-6 -right-6 bg-gradient-to-br from-white via-white to-gray-50 text-primary-700 p-6 rounded-xl shadow-xl border-l-4 border-orange-400">
                   <div className="flex items-center space-x-3">
-                    <Star className="w-8 h-8 text-orange-500" />
+                    <div className="relative">
+                      <Star className="w-8 h-8 text-orange-500" />
+                      <div className="absolute -inset-1 bg-orange-400/20 rounded-full"></div>
+                    </div>
                     <div>
                       <div className="text-2xl font-bold">4.9/5</div>
                       <div className="text-sm text-gray-600">Student Rating</div>
                     </div>
                   </div>
+                  {/* Angular accent on badge */}
+                  <div className="absolute -top-2 -left-2 w-4 h-4 bg-orange-400 transform rotate-45"></div>
                 </div>
               </div>
             </div>
@@ -219,12 +265,12 @@ const Home = () => {
               Popular Courses
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Discover our comprehensive range of paramedical and nursing programs 
-              designed to prepare you for a successful healthcare career.
+              Discover our comprehensive range of paramedical, technical, and management programs 
+              designed to prepare you for a successful career in healthcare and beyond.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {courses.map((course, index) => (
               <div key={index} className={`card group card-hover fade-in-up ${coursesVisible ? 'animate' : ''} stagger-${index + 1}`}>
                 <div className="overflow-hidden rounded-lg mb-4">

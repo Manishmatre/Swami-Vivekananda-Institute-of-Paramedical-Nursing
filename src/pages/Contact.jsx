@@ -55,27 +55,27 @@ const Contact = () => {
       icon: <MapPin className="w-6 h-6 text-primary-500" />,
       title: "Address",
       details: [
-        "123 Healthcare Avenue",
-        "Medical District, City - 123456",
-        "State, India"
+        "Bakhrabad Sabuj Pally",
+        "Paschim Medinipur, West Bengal",
+        "5 minutes walking distance from Bakhrabad Bus Stand towards Bakhrabad Khalina Road"
       ]
     },
     {
       icon: <Phone className="w-6 h-6 text-primary-500" />,
       title: "Phone Numbers",
       details: [
-        "Main Office: +91 98765 43210",
-        "Admissions: +91 98765 43211",
-        "Emergency: +91 98765 43212"
+        "Main Office: +91 79082 38939",
+        "Alternative: +91 99339 70075",
+        "For Inquiries: +91 79082 38939"
       ]
     },
     {
       icon: <Mail className="w-6 h-6 text-primary-500" />,
-      title: "Email Addresses",
+      title: "Email Address",
       details: [
-        "info@svipn.edu.in",
-        "admissions@svipn.edu.in",
-        "principal@svipn.edu.in"
+        "suvankarchanda85@gmail.com",
+        "For Admissions: suvankarchanda85@gmail.com",
+        "General Inquiries: suvankarchanda85@gmail.com"
       ]
     },
     {
@@ -83,8 +83,8 @@ const Contact = () => {
       title: "Office Hours",
       details: [
         "Monday - Friday: 9:00 AM - 6:00 PM",
-        "Saturday: 9:00 AM - 2:00 PM",
-        "Sunday: Closed"
+        "Saturday: 9:00 AM - 4:00 PM",
+        "Sunday: 10:00 AM - 2:00 PM"
       ]
     }
   ]
@@ -92,27 +92,27 @@ const Contact = () => {
   const departments = [
     {
       name: "Admissions Office",
-      phone: "+91 98765 43211",
-      email: "admissions@svipn.edu.in",
-      head: "Mrs. Priya Sharma"
+      phone: "+91 79082 38939",
+      email: "suvankarchanda85@gmail.com",
+      head: "Admissions Team"
     },
     {
       name: "Academic Office",
-      phone: "+91 98765 43213",
-      email: "academics@svipn.edu.in",
-      head: "Dr. Rajesh Kumar"
+      phone: "+91 99339 70075",
+      email: "suvankarchanda85@gmail.com",
+      head: "Academic Coordinator"
     },
     {
       name: "Student Affairs",
-      phone: "+91 98765 43214",
-      email: "students@svipn.edu.in",
-      head: "Mr. Amit Verma"
+      phone: "+91 79082 38939",
+      email: "suvankarchanda85@gmail.com",
+      head: "Student Support Team"
     },
     {
-      name: "Placement Cell",
-      phone: "+91 98765 43215",
-      email: "placements@svipn.edu.in",
-      head: "Ms. Sunita Gupta"
+      name: "Information Desk",
+      phone: "+91 99339 70075",
+      email: "suvankarchanda85@gmail.com",
+      head: "Information Officer"
     }
   ]
 
@@ -144,14 +144,14 @@ const Contact = () => {
         <div className="container-max">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <a 
-              href="tel:+919876543210"
+              href="tel:+917908238939"
               className={`flex items-center justify-center space-x-3 bg-primary-500 hover:bg-primary-600 text-white p-4 rounded-lg transition-colors pulse-glow fade-in-up ${quickContactVisible ? 'animate' : ''} stagger-1`}
             >
               <Phone className="w-6 h-6" />
               <span className="font-semibold">Call Now</span>
             </a>
             <a 
-              href="https://wa.me/919876543210" 
+              href="https://wa.me/917908238939" 
               target="_blank" 
               rel="noopener noreferrer"
               className={`flex items-center justify-center space-x-3 bg-green-500 hover:bg-green-600 text-white p-4 rounded-lg transition-colors pulse-glow fade-in-up ${quickContactVisible ? 'animate' : ''} stagger-2`}
@@ -160,7 +160,7 @@ const Contact = () => {
               <span className="font-semibold">WhatsApp</span>
             </a>
             <a 
-              href="mailto:info@svipn.edu.in"
+              href="mailto:suvankarchanda85@gmail.com"
               className={`flex items-center justify-center space-x-3 bg-orange-500 hover:bg-orange-600 text-white p-4 rounded-lg transition-colors pulse-glow fade-in-up ${quickContactVisible ? 'animate' : ''} stagger-3`}
             >
               <Mail className="w-6 h-6" />
@@ -334,24 +334,24 @@ const Contact = () => {
           <div className={`text-center mb-12 fade-in-up ${mapVisible ? 'animate' : ''}`}>
             <h2 className="text-3xl font-bold text-primary-700 mb-4">Find Us on Map</h2>
             <p className="text-lg text-gray-600">
-              Located in the heart of the medical district, easily accessible by all modes of transport.
+              Located at Bakhrabad Sabuj Pally, Paschim Medinipur - easily accessible by bus and local transport.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Map Placeholder */}
+            {/* Google Maps Embed */}
             <div className={`lg:col-span-2 fade-in-left ${mapVisible ? 'animate' : ''} stagger-1`}>
-              <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
-                <div className="text-center">
-                  <Navigation className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-500 text-lg font-medium">Interactive Map</p>
-                  <p className="text-gray-400 text-sm">
-                    Google Maps integration would be placed here
-                  </p>
-                  <button className="mt-4 bg-primary-500 text-white px-6 py-2 rounded-lg hover:bg-primary-600 transition-colors pulse-glow">
-                    Open in Google Maps
-                  </button>
-                </div>
+              <div className="rounded-lg overflow-hidden shadow-lg">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29569.530290238523!2d87.33343411833134!3d22.11868129999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1d3a1eff8ae399%3A0xa7f81a267c0c628f!2sBakhrabad!5e0!3m2!1sen!2sin!4v1757446032317!5m2!1sen!2sin" 
+                  width="100%" 
+                  height="400" 
+                  style={{border: 0}} 
+                  allowFullScreen="" 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Swami Vivekananda Institute Location - Bakhrabad, Paschim Medinipur"
+                ></iframe>
               </div>
             </div>
 
@@ -361,16 +361,16 @@ const Contact = () => {
                 <h3 className="text-lg font-semibold text-primary-700 mb-4">How to Reach</h3>
                 <div className="space-y-3 text-sm text-gray-600">
                   <div>
-                    <strong>By Metro:</strong> Medical College Station (2 min walk)
+                    <strong>By Bus:</strong> Bakhrabad Bus Stand (5 min walk towards Khalina Road)
                   </div>
                   <div>
-                    <strong>By Bus:</strong> Routes 15, 23, 45 stop nearby
+                    <strong>By Train:</strong> Nearest railway station - Kharagpur Junction
                   </div>
                   <div>
-                    <strong>By Car:</strong> Ample parking available on campus
+                    <strong>By Car:</strong> Parking available on campus premises
                   </div>
                   <div>
-                    <strong>Landmarks:</strong> Near City Hospital & Medical College
+                    <strong>Landmarks:</strong> Near Bakhrabad Bus Stand, Paschim Medinipur
                   </div>
                 </div>
               </div>

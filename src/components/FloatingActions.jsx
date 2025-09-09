@@ -30,35 +30,35 @@ const FloatingActions = () => {
     {
       name: 'WhatsApp',
       icon: <MessageCircle size={20} />,
-      url: 'https://wa.me/919876543210',
+      url: 'https://wa.me/917908238939',
       color: 'bg-green-500 hover:bg-green-600',
       delay: '0.1s'
     },
     {
       name: 'Facebook',
       icon: <Facebook size={20} />,
-      url: 'https://facebook.com/svipn',
+      url: 'https://facebook.com/swamiVivekanandaInstitute',
       color: 'bg-blue-600 hover:bg-blue-700',
       delay: '0.2s'
     },
     {
       name: 'Instagram',
       icon: <Instagram size={20} />,
-      url: 'https://instagram.com/svipn',
+      url: 'https://instagram.com/swamiVivekanandaInstitute',
       color: 'bg-pink-500 hover:bg-pink-600',
       delay: '0.3s'
     },
     {
       name: 'LinkedIn',
       icon: <Linkedin size={20} />,
-      url: 'https://linkedin.com/company/svipn',
+      url: 'https://linkedin.com/company/swamiVivekanandaInstitute',
       color: 'bg-blue-700 hover:bg-blue-800',
       delay: '0.4s'
     },
     {
       name: 'Twitter',
       icon: <Twitter size={20} />,
-      url: 'https://twitter.com/svipn',
+      url: 'https://twitter.com/swamiVivekanandaInstitute',
       color: 'bg-blue-400 hover:bg-blue-500',
       delay: '0.5s'
     }
