@@ -13,10 +13,18 @@ import {
   Shield,
   Coffee,
   Monitor,
-  Heart
+  Heart,
+  Mail,
+  Phone,
+  Star
 } from 'lucide-react'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const Faculty = () => {
+  const [heroRef, heroVisible] = useScrollAnimation(0.2)
+  const [facultyRef, facultyVisible] = useScrollAnimation(0.2)
+  const [facilitiesRef, facilitiesVisible] = useScrollAnimation(0.3)
+  const [achievementsRef, achievementsVisible] = useScrollAnimation(0.2)
   const facultyMembers = [
     {
       name: "Dr. Rajesh Kumar",
@@ -128,18 +136,19 @@ const Faculty = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-600 to-primary-800 text-white section-padding">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
+        <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
             alt="Faculty and Facilities" 
             className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70"></div>
         </div>
         
-        <div className="relative container-max text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">Faculty & Facilities</h1>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+        <div className="relative container-max text-center" ref={heroRef}>
+          <h1 className={`text-5xl md:text-6xl font-bold mb-6 fade-in-up ${heroVisible ? 'animate' : ''}`}>Faculty & Facilities</h1>
+          <p className={`text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed fade-in-up ${heroVisible ? 'animate' : ''} stagger-1`}>
             Learn from experienced professionals in world-class facilities designed 
             for excellence in healthcare education.
           </p>
@@ -147,41 +156,60 @@ const Faculty = () => {
       </section>
 
       {/* Faculty Section */}
-      <section className="bg-white section-padding">
+      <section className="bg-white section-padding" ref={facultyRef}>
         <div className="container-max">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-primary-700 mb-4">Our Expert Faculty</h2>
+          <div className={`text-center mb-16 fade-in-up ${facultyVisible ? 'animate' : ''}`}>
+            <h2 className="text-4xl font-bold text-primary-700 mb-4">
+              Our Esteemed Faculty
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our distinguished faculty members bring decades of experience in healthcare 
-              and medical education to guide your learning journey.
+              Meet our dedicated team of experienced educators and healthcare professionals 
+              committed to shaping the next generation of medical experts.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {facultyMembers.map((faculty, index) => (
-              <div key={index} className="card text-center hover:transform hover:scale-105 transition-all duration-300">
-                <div className="relative mb-6">
+            {facultyMembers.map((member, index) => (
+              <div key={index} className={`card group card-hover fade-in-up ${facultyVisible ? 'animate' : ''} stagger-${(index % 3) + 1}`}>
+                <div className="relative overflow-hidden rounded-lg mb-6">
                   <img 
-                    src={faculty.image} 
-                    alt={faculty.name}
-                    className="w-32 h-32 object-cover rounded-full mx-auto shadow-lg"
+                    src={member.image} 
+                    alt={member.name}
+                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
                   />
-                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-primary-500 text-white p-2 rounded-full">
-                    <GraduationCap className="w-5 h-5" />
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 
                 <div className="space-y-3">
-                  <h3 className="text-xl font-bold text-primary-700">{faculty.name}</h3>
-                  <p className="text-orange-600 font-semibold">{faculty.position}</p>
-                  <p className="text-gray-600 text-sm">{faculty.qualification}</p>
-                  <div className="flex justify-center items-center space-x-4 text-sm text-gray-500">
+                  <h3 className="text-xl font-bold text-primary-700">
+                    {member.name}
+                  </h3>
+                  <p className="text-orange-600 font-semibold">
+                    {member.position}
+                  </p>
+                  <p className="text-gray-600">
+                    {member.qualification}
+                  </p>
+                  <div className="flex items-center space-x-4 text-sm text-gray-500">
                     <span className="flex items-center space-x-1">
                       <Award className="w-4 h-4" />
-                      <span>{faculty.experience}</span>
+                      <span>{member.experience}</span>
                     </span>
                   </div>
-                  <p className="text-gray-700 text-sm italic">{faculty.specialization}</p>
+                  <p className="text-gray-600 text-sm">
+                    <strong>Specialization:</strong> {member.specialization}
+                  </p>
+                  
+                  <div className="flex space-x-3 pt-4">
+                    <button className="flex-1 bg-primary-500 hover:bg-primary-600 text-white py-2 px-4 rounded-lg text-sm font-medium transition-colors">
+                      <Mail className="inline w-4 h-4 mr-1" />
+                      Contact
+                    </button>
+                    <button className="flex-1 bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg text-sm font-medium transition-colors">
+                      <BookOpen className="inline w-4 h-4 mr-1" />
+                      Profile
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -190,9 +218,9 @@ const Faculty = () => {
       </section>
 
       {/* Facilities Section */}
-      <section className="bg-gray-50 section-padding">
+      <section className="bg-gray-50 section-padding" ref={facilitiesRef}>
         <div className="container-max">
-          <div className="text-center mb-16">
+          <div className={`text-center mb-16 fade-in-up ${facilitiesVisible ? 'animate' : ''}`}>
             <h2 className="text-4xl font-bold text-primary-700 mb-4">World-Class Facilities</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Our state-of-the-art infrastructure provides the perfect environment 
@@ -202,7 +230,7 @@ const Faculty = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {facilities.map((facility, index) => (
-              <div key={index} className="card hover:shadow-xl transition-shadow duration-300">
+              <div key={index} className={`card card-hover fade-in-up ${facilitiesVisible ? 'animate' : ''} stagger-${(index % 2) + 1}`}>
                 <div className="flex items-start space-x-4 mb-4">
                   <div className="flex-shrink-0">
                     <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center">
@@ -243,7 +271,7 @@ const Faculty = () => {
       {/* Hospital Partners */}
       <section className="bg-white section-padding">
         <div className="container-max">
-          <div className="text-center mb-12">
+          <div className={`text-center mb-12 fade-in-up ${achievementsVisible ? 'animate' : ''}`}>
             <h2 className="text-3xl font-bold text-primary-700 mb-4">Hospital Training Partners</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Our students gain practical experience through partnerships with leading hospitals and healthcare institutions.
@@ -252,7 +280,7 @@ const Faculty = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {hospitalPartners.map((hospital, index) => (
-              <div key={index} className="bg-gray-50 p-4 rounded-lg text-center hover:bg-primary-50 transition-colors">
+              <div key={index} className={`bg-gray-50 p-4 rounded-lg text-center hover:bg-primary-50 transition-colors card-hover fade-in-up ${achievementsVisible ? 'animate' : ''} stagger-${(index % 4) + 1}`}>
                 <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-3">
                   <Heart className="w-6 h-6 text-primary-600" />
                 </div>
@@ -266,7 +294,7 @@ const Faculty = () => {
       {/* Campus Amenities */}
       <section className="bg-primary-700 text-white section-padding">
         <div className="container-max">
-          <div className="text-center mb-12">
+          <div className={`text-center mb-12 fade-in-up ${achievementsVisible ? 'animate' : ''}`}>
             <h2 className="text-3xl font-bold mb-4">Campus Amenities</h2>
             <p className="text-lg text-gray-200 max-w-2xl mx-auto">
               Everything you need for a comfortable and productive learning experience.

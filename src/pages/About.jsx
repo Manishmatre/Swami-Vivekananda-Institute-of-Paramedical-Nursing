@@ -9,10 +9,18 @@ import {
   Globe,
   Calendar,
   CheckCircle,
-  Lightbulb
+  Lightbulb,
+  Building2,
+  TrendingUp,
+  Shield
 } from 'lucide-react'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const About = () => {
+  const [heroRef, heroVisible] = useScrollAnimation(0.2)
+  const [valuesRef, valuesVisible] = useScrollAnimation(0.2)
+  const [achievementsRef, achievementsVisible] = useScrollAnimation(0.3)
+  const [visionRef, visionVisible] = useScrollAnimation(0.2)
   const milestones = [
     {
       year: "2010",
@@ -83,20 +91,21 @@ const About = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-600 to-primary-800 text-white section-padding">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
+        <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
-            alt="About us" 
+            src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
+            alt="About Us" 
             className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70"></div>
         </div>
         
-        <div className="relative container-max text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">About Us</h1>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-            Inspired by Swami Vivekananda's philosophy of education and service, 
-            we are committed to shaping compassionate healthcare professionals.
+        <div className="relative container-max text-center" ref={heroRef}>
+          <h1 className={`text-5xl md:text-6xl font-bold mb-6 fade-in-up ${heroVisible ? 'animate' : ''}`}>About Our Institute</h1>
+          <p className={`text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed fade-in-up ${heroVisible ? 'animate' : ''} stagger-1`}>
+            Dedicated to excellence in healthcare education since 2010, 
+            inspired by Swami Vivekananda's vision of holistic education.
           </p>
         </div>
       </section>
@@ -168,36 +177,39 @@ const About = () => {
       </section>
 
       {/* Vivekananda Philosophy */}
-      <section className="bg-gradient-to-r from-orange-50 to-primary-50 section-padding">
+      <section className="bg-white section-padding">
         <div className="container-max">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <h2 className="text-4xl font-bold text-primary-700">
-                Inspired by Swami Vivekananda
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className={`space-y-6 fade-in-left ${heroVisible ? 'animate' : ''}`}>
+              <h2 className="text-4xl font-bold text-primary-700 mb-6">
+                Our Story
               </h2>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Our institute draws inspiration from Swami Vivekananda's philosophy of education 
-                that emphasizes character building, strength of mind, and service to humanity. 
-                We believe that true education should develop not just professional skills, 
-                but also moral character and spiritual strength.
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Founded in 2010 with a vision to create world-class healthcare professionals, 
+                Swami Vivekananda Institute of Paramedical & Nursing has been at the forefront 
+                of medical education excellence.
               </p>
-              <blockquote className="border-l-4 border-orange-500 pl-6 italic text-gray-600 text-lg">
-                "The education which does not help the common mass of people to equip themselves 
-                for the struggle for life, which does not bring out strength of character, 
-                a spirit of philanthropy, and the courage of a lion - is it worth the name?"
-              </blockquote>
-              <p className="text-primary-600 font-medium">- Swami Vivekananda</p>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Inspired by Swami Vivekananda's philosophy of "Education is the manifestation 
+                of perfection already in man," we believe in nurturing not just skilled 
+                professionals, but compassionate healers who serve humanity with dedication.
+              </p>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Our institute has grown from a small nursing college to a comprehensive 
+                healthcare education hub, producing over 500 graduates who now serve 
+                in leading hospitals and healthcare institutions across the country.
+              </p>
             </div>
-            <div className="relative">
+            <div className={`relative fade-in-right ${heroVisible ? 'animate' : ''} float-animation`}>
               <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                alt="Swami Vivekananda inspiration" 
-                className="rounded-2xl shadow-xl"
+                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                alt="Our Institute" 
+                className="rounded-2xl shadow-2xl"
               />
-              <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg">
+              <div className="absolute -bottom-6 -left-6 bg-orange-500 text-white p-6 rounded-xl shadow-xl">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary-600">1863-1902</div>
-                  <div className="text-sm text-gray-600">Swami Vivekananda</div>
+                  <div className="text-3xl font-bold">15+</div>
+                  <div className="text-sm opacity-90">Years of Excellence</div>
                 </div>
               </div>
             </div>
@@ -206,21 +218,23 @@ const About = () => {
       </section>
 
       {/* Our Values */}
-      <section className="bg-white section-padding">
+      <section className="bg-gray-50 section-padding" ref={valuesRef}>
         <div className="container-max">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-primary-700 mb-4">Our Core Values</h2>
+          <div className={`text-center mb-16 fade-in-up ${valuesVisible ? 'animate' : ''}`}>
+            <h2 className="text-4xl font-bold text-primary-700 mb-4">
+              Our Core Values
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               These fundamental principles guide everything we do and shape the character 
               of our students and institution.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <div key={index} className="card text-center hover:transform hover:scale-105 transition-all duration-300">
+              <div key={index} className={`card text-center card-hover fade-in-up ${valuesVisible ? 'animate' : ''} stagger-${index + 1}`}>
                 <div className="flex justify-center mb-4">
-                  <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center">
+                  <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center">
                     {value.icon}
                   </div>
                 </div>
@@ -275,6 +289,37 @@ const About = () => {
                   <div className="flex-1 hidden lg:block"></div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership Message */}
+      <section className="bg-gradient-to-r from-primary-600 to-primary-800 text-white section-padding" ref={visionRef}>
+        <div className="container-max">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className={`fade-in-left ${visionVisible ? 'animate' : ''}`}>
+              <div className="flex items-center space-x-3 mb-6">
+                <Target className="w-8 h-8 text-orange-400 float-animation" />
+                <h2 className="text-3xl font-bold">Our Mission</h2>
+              </div>
+              <p className="text-lg text-gray-200 leading-relaxed mb-8">
+                To provide world-class healthcare education that combines academic excellence 
+                with practical training, producing competent and compassionate healthcare 
+                professionals who contribute to society's wellbeing.
+              </p>
+            </div>
+            <div className={`fade-in-right ${visionVisible ? 'animate' : ''} stagger-1`}>
+              <div className="flex items-center space-x-3 mb-6">
+                <Eye className="w-8 h-8 text-orange-400 float-animation" />
+                <h2 className="text-3xl font-bold">Our Vision</h2>
+              </div>
+              <p className="text-lg text-gray-200 leading-relaxed">
+                To be recognized as the leading institution for paramedical and nursing 
+                education in India, known for our innovative teaching methods, 
+                state-of-the-art facilities, and graduates who excel in their careers 
+                while serving humanity with dedication and compassion.
+              </p>
             </div>
           </div>
         </div>

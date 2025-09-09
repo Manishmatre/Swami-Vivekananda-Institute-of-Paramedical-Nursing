@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { 
   Users, 
@@ -13,8 +13,27 @@ import {
   CheckCircle,
   Star
 } from 'lucide-react'
+import { useScrollAnimation, useCountUp } from '../hooks/useScrollAnimation'
 
 const Home = () => {
+  const [statsRef, statsVisible] = useScrollAnimation(0.3)
+  const [highlightsRef, highlightsVisible] = useScrollAnimation(0.2)
+  const [coursesRef, coursesVisible] = useScrollAnimation(0.2)
+  const [quoteRef, quoteVisible] = useScrollAnimation(0.3)
+  
+  const [count1, startCount1] = useCountUp(500, 2000)
+  const [count2, startCount2] = useCountUp(15, 2000)
+  const [count3, startCount3] = useCountUp(50, 2000)
+  const [count4, startCount4] = useCountUp(95, 2000)
+  
+  const counters = [count1, count2, count3, count4]
+  const startCounters = [startCount1, startCount2, startCount3, startCount4]
+  
+  useEffect(() => {
+    if (statsVisible) {
+      startCounters.forEach(start => start())
+    }
+  }, [statsVisible])
   const highlights = [
     {
       icon: <Users className="w-8 h-8 text-orange-500" />,
@@ -39,10 +58,10 @@ const Home = () => {
   ]
 
   const stats = [
-    { number: "500+", label: "Students Graduated" },
-    { number: "15+", label: "Years of Excellence" },
-    { number: "50+", label: "Hospital Partners" },
-    { number: "95%", label: "Placement Rate" }
+    { number: 500, label: "Students Graduated", suffix: "+" },
+    { number: 15, label: "Years of Excellence", suffix: "+" },
+    { number: 50, label: "Hospital Partners", suffix: "+" },
+    { number: 95, label: "Placement Rate", suffix: "%" }
   ]
 
   const courses = [
@@ -70,9 +89,6 @@ const Home = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-600/90 to-transparent"></div>
-        
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
@@ -81,10 +97,14 @@ const Home = () => {
             className="w-full h-full object-cover"
           />
         </div>
+        
+        {/* Dark Overlay for better text readability */}
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-800/80 via-primary-700/60 to-primary-600/40"></div>
 
         <div className="relative container-max section-padding">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
-            <div className="space-y-8 animate-fade-in">
+            <div className="space-y-8 fade-in-left animate">
               <div className="space-y-4">
                 <h1 className="text-5xl md:text-6xl font-bold leading-tight">
                   Shaping Future
@@ -99,7 +119,7 @@ const Home = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/admissions" className="btn-secondary text-center">
+                <Link to="/admissions" className="btn-secondary text-center pulse-glow">
                   Apply Now
                   <ArrowRight className="inline ml-2 w-5 h-5" />
                 </Link>
@@ -120,7 +140,7 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="hidden lg:block animate-slide-up">
+            <div className="hidden lg:block fade-in-right animate float-animation">
               <div className="relative">
                 <img 
                   src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
@@ -143,13 +163,13 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-16" ref={statsRef}>
         <div className="container-max">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center animate-fade-in">
+              <div key={index} className={`text-center scale-in ${statsVisible ? 'animate' : ''} stagger-${index + 1}`}>
                 <div className="text-4xl md:text-5xl font-bold text-primary-600 mb-2">
-                  {stat.number}
+                  {counters[index]}{stat.suffix}
                 </div>
                 <div className="text-gray-600 font-medium">{stat.label}</div>
               </div>
@@ -159,9 +179,9 @@ const Home = () => {
       </section>
 
       {/* Highlights Section */}
-      <section className="bg-gray-50 section-padding">
+      <section className="bg-gray-50 section-padding" ref={highlightsRef}>
         <div className="container-max">
-          <div className="text-center mb-16">
+          <div className={`text-center mb-16 fade-in-up ${highlightsVisible ? 'animate' : ''}`}>
             <h2 className="text-4xl font-bold text-primary-700 mb-4">
               Why Choose Us?
             </h2>
@@ -173,7 +193,7 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {highlights.map((highlight, index) => (
-              <div key={index} className="card text-center hover:transform hover:scale-105 transition-all duration-300 animate-slide-up">
+              <div key={index} className={`card text-center card-hover fade-in-up ${highlightsVisible ? 'animate' : ''} stagger-${index + 1}`}>
                 <div className="flex justify-center mb-4">
                   <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center">
                     {highlight.icon}
@@ -192,9 +212,9 @@ const Home = () => {
       </section>
 
       {/* Featured Courses */}
-      <section className="bg-white section-padding">
+      <section className="bg-white section-padding" ref={coursesRef}>
         <div className="container-max">
-          <div className="text-center mb-16">
+          <div className={`text-center mb-16 fade-in-up ${coursesVisible ? 'animate' : ''}`}>
             <h2 className="text-4xl font-bold text-primary-700 mb-4">
               Popular Courses
             </h2>
@@ -206,7 +226,7 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {courses.map((course, index) => (
-              <div key={index} className="card group hover:transform hover:scale-105 transition-all duration-300">
+              <div key={index} className={`card group card-hover fade-in-up ${coursesVisible ? 'animate' : ''} stagger-${index + 1}`}>
                 <div className="overflow-hidden rounded-lg mb-4">
                   <img 
                     src={course.image} 
@@ -238,8 +258,8 @@ const Home = () => {
             ))}
           </div>
 
-          <div className="text-center mt-12">
-            <Link to="/courses" className="btn-primary">
+          <div className={`text-center mt-12 fade-in-up ${coursesVisible ? 'animate' : ''} stagger-4`}>
+            <Link to="/courses" className="btn-primary pulse-glow">
               View All Courses
             </Link>
           </div>
@@ -247,18 +267,18 @@ const Home = () => {
       </section>
 
       {/* Vivekananda Quote Section */}
-      <section className="bg-gradient-to-r from-primary-600 to-primary-800 text-white section-padding">
+      <section className="bg-gradient-to-r from-primary-600 to-primary-800 text-white section-padding" ref={quoteRef}>
         <div className="container-max text-center">
           <div className="max-w-4xl mx-auto">
-            <div className="mb-8">
-              <Heart className="w-16 h-16 text-orange-400 mx-auto mb-6" />
+            <div className={`mb-8 scale-in ${quoteVisible ? 'animate' : ''}`}>
+              <Heart className="w-16 h-16 text-orange-400 mx-auto mb-6 float-animation" />
             </div>
-            <blockquote className="text-2xl md:text-3xl font-light italic leading-relaxed mb-8">
+            <blockquote className={`text-2xl md:text-3xl font-light italic leading-relaxed mb-8 fade-in-up ${quoteVisible ? 'animate' : ''} stagger-1`}>
               "Education is the manifestation of the perfection already in man. 
               We want that education by which character is formed, strength of mind is increased, 
               the intellect is expanded, and by which one can stand on one's own feet."
             </blockquote>
-            <cite className="text-orange-300 text-lg font-medium">
+            <cite className={`text-orange-300 text-lg font-medium fade-in-up ${quoteVisible ? 'animate' : ''} stagger-2`}>
               - Swami Vivekananda
             </cite>
           </div>

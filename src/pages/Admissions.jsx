@@ -14,8 +14,15 @@ import {
   MapPin,
   Award
 } from 'lucide-react'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const Admissions = () => {
+  const [selectedCourse, setSelectedCourse] = useState('')
+  const [heroRef, heroVisible] = useScrollAnimation(0.2)
+  const [processRef, processVisible] = useScrollAnimation(0.2)
+  const [requirementsRef, requirementsVisible] = useScrollAnimation(0.3)
+  const [formRef, formVisible] = useScrollAnimation(0.2)
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -108,18 +115,19 @@ const Admissions = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-600 to-primary-800 text-white section-padding">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
+        <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
             alt="Admissions" 
             className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70"></div>
         </div>
         
-        <div className="relative container-max text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">Admissions 2024</h1>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+        <div className="relative container-max text-center" ref={heroRef}>
+          <h1 className={`text-5xl md:text-6xl font-bold mb-6 fade-in-up ${heroVisible ? 'animate' : ''}`}>Admissions</h1>
+          <p className={`text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed fade-in-up ${heroVisible ? 'animate' : ''} stagger-1`}>
             Join India's premier institute for paramedical and nursing education. 
             Start your journey towards a rewarding healthcare career.
           </p>
@@ -152,9 +160,9 @@ const Admissions = () => {
       </section>
 
       {/* Admission Process */}
-      <section className="bg-gray-50 section-padding">
+      <section className="bg-gray-50 section-padding" ref={processRef}>
         <div className="container-max">
-          <div className="text-center mb-16">
+          <div className={`text-center mb-16 fade-in-up ${processVisible ? 'animate' : ''}`}>
             <h2 className="text-4xl font-bold text-primary-700 mb-4">
               Admission Process
             </h2>
@@ -163,21 +171,21 @@ const Admissions = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {admissionSteps.map((step, index) => (
-              <div key={index} className="text-center">
+              <div key={index} className={`text-center fade-in-up ${processVisible ? 'animate' : ''} stagger-${index + 1}`}>
                 <div className="relative mb-6">
-                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto shadow-lg border-4 border-primary-100">
+                  <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4 float-animation">
                     {step.icon}
                   </div>
                   <div className="absolute -top-2 -right-2 w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm font-bold">
-                    {step.step}
+                    {index + 1}
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold text-primary-700 mb-3">
+                <h3 className="text-xl font-semibold text-primary-700 mb-3">
                   {step.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-gray-600 leading-relaxed">
                   {step.description}
                 </p>
               </div>

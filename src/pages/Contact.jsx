@@ -12,6 +12,7 @@ import {
   Building2,
   Navigation
 } from 'lucide-react'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -24,6 +25,12 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [heroRef, heroVisible] = useScrollAnimation(0.2)
+  const [quickContactRef, quickContactVisible] = useScrollAnimation(0.2)
+  const [formRef, formVisible] = useScrollAnimation(0.2)
+  const [mapRef, mapVisible] = useScrollAnimation(0.3)
+  const [departmentsRef, departmentsVisible] = useScrollAnimation(0.2)
+  const [faqRef, faqVisible] = useScrollAnimation(0.2)
 
   const handleInputChange = (e) => {
     setFormData({
@@ -113,18 +120,19 @@ const Contact = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-600 to-primary-800 text-white section-padding">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
+        <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1486312338219-ce68e2c6b7d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
             alt="Contact Us" 
             className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70"></div>
         </div>
         
-        <div className="relative container-max text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">Contact Us</h1>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+        <div className="relative container-max text-center" ref={heroRef}>
+          <h1 className={`text-5xl md:text-6xl font-bold mb-6 fade-in-up ${heroVisible ? 'animate' : ''}`}>Contact Us</h1>
+          <p className={`text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed fade-in-up ${heroVisible ? 'animate' : ''} stagger-1`}>
             Get in touch with us for admissions, inquiries, or any information about 
             our healthcare education programs. We're here to help you start your journey.
           </p>
@@ -132,12 +140,12 @@ const Contact = () => {
       </section>
 
       {/* Quick Contact Options */}
-      <section className="bg-white py-8 shadow-lg">
+      <section className="bg-white py-8 shadow-lg" ref={quickContactRef}>
         <div className="container-max">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <a 
               href="tel:+919876543210"
-              className="flex items-center justify-center space-x-3 bg-primary-500 hover:bg-primary-600 text-white p-4 rounded-lg transition-colors"
+              className={`flex items-center justify-center space-x-3 bg-primary-500 hover:bg-primary-600 text-white p-4 rounded-lg transition-colors pulse-glow fade-in-up ${quickContactVisible ? 'animate' : ''} stagger-1`}
             >
               <Phone className="w-6 h-6" />
               <span className="font-semibold">Call Now</span>
@@ -146,14 +154,14 @@ const Contact = () => {
               href="https://wa.me/919876543210" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="flex items-center justify-center space-x-3 bg-green-500 hover:bg-green-600 text-white p-4 rounded-lg transition-colors"
+              className={`flex items-center justify-center space-x-3 bg-green-500 hover:bg-green-600 text-white p-4 rounded-lg transition-colors pulse-glow fade-in-up ${quickContactVisible ? 'animate' : ''} stagger-2`}
             >
               <MessageCircle className="w-6 h-6" />
               <span className="font-semibold">WhatsApp</span>
             </a>
             <a 
               href="mailto:info@svipn.edu.in"
-              className="flex items-center justify-center space-x-3 bg-orange-500 hover:bg-orange-600 text-white p-4 rounded-lg transition-colors"
+              className={`flex items-center justify-center space-x-3 bg-orange-500 hover:bg-orange-600 text-white p-4 rounded-lg transition-colors pulse-glow fade-in-up ${quickContactVisible ? 'animate' : ''} stagger-3`}
             >
               <Mail className="w-6 h-6" />
               <span className="font-semibold">Email Us</span>
@@ -163,11 +171,11 @@ const Contact = () => {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="bg-gray-50 section-padding">
+      <section className="bg-gray-50 section-padding" ref={formRef}>
         <div className="container-max">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div className="bg-white rounded-lg shadow-lg p-8">
+            <div className={`bg-white rounded-lg shadow-lg p-8 fade-in-left ${formVisible ? 'animate' : ''}`}>
               <h2 className="text-3xl font-bold text-primary-700 mb-6">Send us a Message</h2>
               
               {submitted ? (
@@ -299,9 +307,9 @@ const Contact = () => {
             </div>
 
             {/* Contact Information */}
-            <div className="space-y-8">
+            <div className={`space-y-8 fade-in-right ${formVisible ? 'animate' : ''} stagger-1`}>
               {contactInfo.map((info, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-lg p-6">
+                <div key={index} className="bg-white rounded-lg shadow-lg p-6 card-hover">
                   <div className="flex items-center space-x-4 mb-4">
                     <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
                       {info.icon}
@@ -321,9 +329,9 @@ const Contact = () => {
       </section>
 
       {/* Map Section */}
-      <section className="bg-white section-padding">
+      <section className="bg-white section-padding" ref={mapRef}>
         <div className="container-max">
-          <div className="text-center mb-12">
+          <div className={`text-center mb-12 fade-in-up ${mapVisible ? 'animate' : ''}`}>
             <h2 className="text-3xl font-bold text-primary-700 mb-4">Find Us on Map</h2>
             <p className="text-lg text-gray-600">
               Located in the heart of the medical district, easily accessible by all modes of transport.
@@ -332,7 +340,7 @@ const Contact = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Map Placeholder */}
-            <div className="lg:col-span-2">
+            <div className={`lg:col-span-2 fade-in-left ${mapVisible ? 'animate' : ''} stagger-1`}>
               <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
                 <div className="text-center">
                   <Navigation className="w-16 h-16 text-gray-400 mx-auto mb-4" />
@@ -340,7 +348,7 @@ const Contact = () => {
                   <p className="text-gray-400 text-sm">
                     Google Maps integration would be placed here
                   </p>
-                  <button className="mt-4 bg-primary-500 text-white px-6 py-2 rounded-lg hover:bg-primary-600 transition-colors">
+                  <button className="mt-4 bg-primary-500 text-white px-6 py-2 rounded-lg hover:bg-primary-600 transition-colors pulse-glow">
                     Open in Google Maps
                   </button>
                 </div>
@@ -348,7 +356,7 @@ const Contact = () => {
             </div>
 
             {/* Directions */}
-            <div className="space-y-6">
+            <div className={`space-y-6 fade-in-right ${mapVisible ? 'animate' : ''} stagger-2`}>
               <div className="bg-primary-50 rounded-lg p-6">
                 <h3 className="text-lg font-semibold text-primary-700 mb-4">How to Reach</h3>
                 <div className="space-y-3 text-sm text-gray-600">
@@ -394,9 +402,9 @@ const Contact = () => {
       </section>
 
       {/* Department Contacts */}
-      <section className="bg-gray-50 section-padding">
+      <section className="bg-gray-50 section-padding" ref={departmentsRef}>
         <div className="container-max">
-          <div className="text-center mb-12">
+          <div className={`text-center mb-12 fade-in-up ${departmentsVisible ? 'animate' : ''}`}>
             <h2 className="text-3xl font-bold text-primary-700 mb-4">Department Contacts</h2>
             <p className="text-lg text-gray-600">
               Connect directly with specific departments for targeted assistance.
@@ -405,7 +413,7 @@ const Contact = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {departments.map((dept, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg p-6">
+              <div key={index} className={`bg-white rounded-lg shadow-lg p-6 card-hover fade-in-up ${departmentsVisible ? 'animate' : ''} stagger-${(index % 2) + 1}`}>
                 <div className="flex items-center space-x-3 mb-4">
                   <Building2 className="w-6 h-6 text-primary-500" />
                   <h3 className="text-lg font-semibold text-primary-700">{dept.name}</h3>
@@ -435,17 +443,17 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-white section-padding">
+      <section className="bg-white section-padding" ref={faqRef}>
         <div className="container-max">
-          <div className="text-center mb-12">
+          <div className={`text-center mb-12 fade-in-up ${faqVisible ? 'animate' : ''}`}>
             <h2 className="text-3xl font-bold text-primary-700 mb-4">
               Frequently Asked Questions
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <div className="bg-gray-50 rounded-lg p-6">
+            <div className={`space-y-6 fade-in-left ${faqVisible ? 'animate' : ''} stagger-1`}>
+              <div className="bg-gray-50 rounded-lg p-6 card-hover">
                 <h4 className="font-semibold text-primary-700 mb-2">
                   What are your visiting hours?
                 </h4>
@@ -455,7 +463,7 @@ const Contact = () => {
                 </p>
               </div>
               
-              <div className="bg-gray-50 rounded-lg p-6">
+              <div className="bg-gray-50 rounded-lg p-6 card-hover">
                 <h4 className="font-semibold text-primary-700 mb-2">
                   How can I schedule a campus tour?
                 </h4>
@@ -466,8 +474,8 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="space-y-6">
-              <div className="bg-gray-50 rounded-lg p-6">
+            <div className={`space-y-6 fade-in-right ${faqVisible ? 'animate' : ''} stagger-2`}>
+              <div className="bg-gray-50 rounded-lg p-6 card-hover">
                 <h4 className="font-semibold text-primary-700 mb-2">
                   Do you provide hostel facilities?
                 </h4>
@@ -477,7 +485,7 @@ const Contact = () => {
                 </p>
               </div>
 
-              <div className="bg-gray-50 rounded-lg p-6">
+              <div className="bg-gray-50 rounded-lg p-6 card-hover">
                 <h4 className="font-semibold text-primary-700 mb-2">
                   What documents do I need for admission?
                 </h4>

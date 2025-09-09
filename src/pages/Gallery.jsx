@@ -1,9 +1,14 @@
 import React, { useState } from 'react'
 import { X, ChevronLeft, ChevronRight, Camera, Users, Building2, Award } from 'lucide-react'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null)
   const [selectedCategory, setSelectedCategory] = useState('all')
+  const [heroRef, heroVisible] = useScrollAnimation(0.2)
+  const [galleryRef, galleryVisible] = useScrollAnimation(0.1)
+  const [statsRef, statsVisible] = useScrollAnimation(0.3)
+  const [ctaRef, ctaVisible] = useScrollAnimation(0.2)
 
   const categories = [
     { id: 'all', name: 'All Photos', icon: <Camera className="w-5 h-5" /> },
@@ -157,18 +162,19 @@ const Gallery = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-600 to-primary-800 text-white section-padding">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
+        <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
             alt="Gallery" 
             className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70"></div>
         </div>
         
-        <div className="relative container-max text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">Gallery</h1>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+        <div className="relative container-max text-center" ref={heroRef}>
+          <h1 className={`text-5xl md:text-6xl font-bold mb-6 fade-in-up ${heroVisible ? 'animate' : ''}`}>Gallery</h1>
+          <p className={`text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed fade-in-up ${heroVisible ? 'animate' : ''} stagger-1`}>
             Take a visual journey through our campus, facilities, and student life. 
             See what makes our institute a premier destination for healthcare education.
           </p>
@@ -198,13 +204,13 @@ const Gallery = () => {
       </section>
 
       {/* Gallery Grid */}
-      <section className="bg-gray-50 section-padding">
+      <section className="bg-gray-50 section-padding" ref={galleryRef}>
         <div className="container-max">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {filteredImages.map((image) => (
+            {filteredImages.map((image, index) => (
               <div 
                 key={image.id} 
-                className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                className={`group cursor-pointer overflow-hidden rounded-lg shadow-lg card-hover fade-in-up ${galleryVisible ? 'animate' : ''} stagger-${(index % 4) + 1}`}
                 onClick={() => openLightbox(image)}
               >
                 <div className="relative overflow-hidden">
@@ -287,26 +293,26 @@ const Gallery = () => {
       )}
 
       {/* Stats Section */}
-      <section className="bg-primary-700 text-white section-padding">
+      <section className="bg-primary-700 text-white section-padding" ref={statsRef}>
         <div className="container-max">
-          <div className="text-center mb-12">
+          <div className={`text-center mb-12 fade-in-up ${statsVisible ? 'animate' : ''}`}>
             <h2 className="text-3xl font-bold mb-4">Our Campus in Numbers</h2>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
+            <div className={`text-center fade-in-up ${statsVisible ? 'animate' : ''} stagger-1`}>
               <div className="text-4xl font-bold text-orange-400 mb-2">50+</div>
               <div className="text-gray-200">Modern Classrooms</div>
             </div>
-            <div className="text-center">
+            <div className={`text-center fade-in-up ${statsVisible ? 'animate' : ''} stagger-2`}>
               <div className="text-4xl font-bold text-orange-400 mb-2">15+</div>
               <div className="text-gray-200">Advanced Laboratories</div>
             </div>
-            <div className="text-center">
+            <div className={`text-center fade-in-up ${statsVisible ? 'animate' : ''} stagger-3`}>
               <div className="text-4xl font-bold text-orange-400 mb-2">25+</div>
               <div className="text-gray-200">Hospital Partners</div>
             </div>
-            <div className="text-center">
+            <div className={`text-center fade-in-up ${statsVisible ? 'animate' : ''} stagger-4`}>
               <div className="text-4xl font-bold text-orange-400 mb-2">1000+</div>
               <div className="text-gray-200">Happy Students</div>
             </div>
@@ -315,19 +321,19 @@ const Gallery = () => {
       </section>
 
       {/* Virtual Tour CTA */}
-      <section className="bg-orange-500 text-white section-padding">
+      <section className="bg-orange-500 text-white section-padding" ref={ctaRef}>
         <div className="container-max text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl font-bold mb-6">Want to See More?</h2>
-            <p className="text-xl mb-8 opacity-90">
+            <h2 className={`text-4xl font-bold mb-6 fade-in-up ${ctaVisible ? 'animate' : ''}`}>Want to See More?</h2>
+            <p className={`text-xl mb-8 opacity-90 fade-in-up ${ctaVisible ? 'animate' : ''} stagger-1`}>
               Schedule a campus visit or take our virtual tour to experience our 
               facilities firsthand and meet our faculty and students.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-orange-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors">
+            <div className={`flex flex-col sm:flex-row gap-4 justify-center fade-in-up ${ctaVisible ? 'animate' : ''} stagger-2`}>
+              <button className="bg-white text-orange-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors pulse-glow">
                 Schedule Campus Visit
               </button>
-              <button className="border-2 border-white text-white hover:bg-white hover:text-orange-600 px-8 py-4 rounded-lg font-semibold transition-all">
+              <button className="border-2 border-white text-white hover:bg-white hover:text-orange-600 px-8 py-4 rounded-lg font-semibold transition-all pulse-glow">
                 Virtual Campus Tour
               </button>
             </div>
