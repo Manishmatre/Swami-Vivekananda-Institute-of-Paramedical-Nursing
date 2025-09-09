@@ -11,7 +11,13 @@ import {
   Shield,
   ArrowRight,
   CheckCircle,
-  Star
+  Star,
+  Quote,
+  MapPin,
+  Calendar,
+  Trophy,
+  BookOpen,
+  Target
 } from 'lucide-react'
 import { useScrollAnimation, useCountUp } from '../hooks/useScrollAnimation'
 
@@ -19,6 +25,9 @@ const Home = () => {
   const [statsRef, statsVisible] = useScrollAnimation(0.3)
   const [highlightsRef, highlightsVisible] = useScrollAnimation(0.2)
   const [coursesRef, coursesVisible] = useScrollAnimation(0.2)
+  const [testimonialsRef, testimonialsVisible] = useScrollAnimation(0.2)
+  const [achievementsRef, achievementsVisible] = useScrollAnimation(0.2)
+  const [partnershipsRef, partnershipsVisible] = useScrollAnimation(0.2)
   const [quoteRef, quoteVisible] = useScrollAnimation(0.3)
   
   const [count1, startCount1] = useCountUp(1000, 2000)
@@ -100,6 +109,86 @@ const Home = () => {
       duration: "5.5 Years",
       description: "Bachelor of Ayurvedic Medicine & Surgery with traditional knowledge",
       image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+    }
+  ]
+
+  // Student Testimonials Data
+  const testimonials = [
+    {
+      name: "Priya Sharma",
+      course: "DMLT Graduate 2023",
+      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+      rating: 5,
+      text: "The practical training at Swami Vivekananda Institute was exceptional. I'm now working as a Lab Technician at Apollo Hospital with excellent salary package.",
+      position: "Lab Technician, Apollo Hospital"
+    },
+    {
+      name: "Rahul Kumar",
+      course: "BPT Graduate 2022",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+      rating: 5,
+      text: "The faculty support and modern infrastructure helped me excel in physiotherapy. Now I run my own clinic and treat 50+ patients daily.",
+      position: "Physiotherapist & Clinic Owner"
+    },
+    {
+      name: "Anita Das",
+      course: "ANM Graduate 2023",
+      image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+      rating: 5,
+      text: "The nursing program prepared me well for real-world healthcare challenges. I'm proud to serve in community healthcare at government hospital.",
+      position: "Staff Nurse, District Hospital"
+    }
+  ]
+
+  // Achievements Data
+  const achievements = [
+    {
+      icon: <Trophy className="w-8 h-8 text-orange-500" />,
+      title: "Best Institute Award 2023",
+      description: "Recognized as the Best Paramedical Institute in West Bengal"
+    },
+    {
+      icon: <Award className="w-8 h-8 text-orange-500" />,
+      title: "100% Placement Record",
+      description: "Consistent 100% placement rate for the last 3 years"
+    },
+    {
+      icon: <BookOpen className="w-8 h-8 text-orange-500" />,
+      title: "AICTE Approved",
+      description: "All programs approved by AICTE and Sikkim Skill University"
+    },
+    {
+      icon: <Target className="w-8 h-8 text-orange-500" />,
+      title: "1000+ Alumni Success",
+      description: "Over 1000 successful healthcare professionals graduated"
+    }
+  ]
+
+  // Hospital Partners Data
+  const hospitalPartners = [
+    {
+      name: "Apollo Hospital",
+      type: "Multi-specialty Hospital",
+      location: "Kolkata",
+      opportunities: "Internship & Placement"
+    },
+    {
+      name: "AMRI Hospital",
+      type: "Super-specialty Hospital", 
+      location: "Kolkata",
+      opportunities: "Clinical Training"
+    },
+    {
+      name: "District Hospital",
+      type: "Government Hospital",
+      location: "Paschim Medinipur",
+      opportunities: "Community Health Training"
+    },
+    {
+      name: "Medica Hospital",
+      type: "Multi-specialty Hospital",
+      location: "Kolkata", 
+      opportunities: "Practical Training"
     }
   ]
 
@@ -307,6 +396,133 @@ const Home = () => {
           <div className={`text-center mt-12 fade-in-up ${coursesVisible ? 'animate' : ''} stagger-4`}>
             <Link to="/courses" className="btn-primary pulse-glow">
               View All Courses
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Student Testimonials Section */}
+      <section className="bg-gray-50 section-padding" ref={testimonialsRef}>
+        <div className="container-max">
+          <div className={`text-center mb-16 fade-in-up ${testimonialsVisible ? 'animate' : ''}`}>
+            <h2 className="text-4xl font-bold text-primary-700 mb-4">
+              What Our Students Say
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Hear from our successful graduates who are now making a difference in healthcare industry.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className={`bg-white rounded-xl p-6 shadow-lg card-hover fade-in-up ${testimonialsVisible ? 'animate' : ''} stagger-${index + 1}`}>
+                <div className="flex items-center mb-4">
+                  <img 
+                    src={testimonial.image} 
+                    alt={testimonial.name}
+                    className="w-16 h-16 rounded-full object-cover mr-4"
+                  />
+                  <div>
+                    <h4 className="font-semibold text-primary-700">{testimonial.name}</h4>
+                    <p className="text-sm text-gray-600">{testimonial.course}</p>
+                    <div className="flex text-orange-400 mt-1">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-current" />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="relative">
+                  <Quote className="w-8 h-8 text-orange-200 absolute -top-2 -left-2" />
+                  <p className="text-gray-700 italic mb-4 pl-6">
+                    "{testimonial.text}"
+                  </p>
+                </div>
+                <div className="border-t pt-4">
+                  <p className="text-sm font-medium text-primary-600">{testimonial.position}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Achievements & Accreditations Section */}
+      <section className="bg-white section-padding" ref={achievementsRef}>
+        <div className="container-max">
+          <div className={`text-center mb-16 fade-in-up ${achievementsVisible ? 'animate' : ''}`}>
+            <h2 className="text-4xl font-bold text-primary-700 mb-4">
+              Our Achievements & Recognition
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Proud milestones that reflect our commitment to excellence in healthcare education.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {achievements.map((achievement, index) => (
+              <div key={index} className={`text-center card card-hover fade-in-up ${achievementsVisible ? 'animate' : ''} stagger-${index + 1}`}>
+                <div className="flex justify-center mb-4">
+                  <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center">
+                    {achievement.icon}
+                  </div>
+                </div>
+                <h3 className="text-lg font-semibold text-primary-700 mb-3">
+                  {achievement.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {achievement.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Hospital Partnerships Section */}
+      <section className="bg-primary-50 section-padding" ref={partnershipsRef}>
+        <div className="container-max">
+          <div className={`text-center mb-16 fade-in-up ${partnershipsVisible ? 'animate' : ''}`}>
+            <h2 className="text-4xl font-bold text-primary-700 mb-4">
+              Hospital Partnerships
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Strategic partnerships with leading hospitals for practical training and placement opportunities.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {hospitalPartners.map((partner, index) => (
+              <div key={index} className={`bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow card-hover fade-in-up ${partnershipsVisible ? 'animate' : ''} stagger-${index + 1}`}>
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mr-3">
+                    <Building2 className="w-6 h-6 text-primary-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-primary-700">{partner.name}</h4>
+                    <p className="text-xs text-gray-500">{partner.type}</p>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex items-center text-sm text-gray-600">
+                    <MapPin className="w-4 h-4 mr-2 text-orange-500" />
+                    {partner.location}
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <Target className="w-4 h-4 mr-2 text-orange-500" />
+                    {partner.opportunities}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className={`text-center mt-12 fade-in-up ${partnershipsVisible ? 'animate' : ''} stagger-5`}>
+            <p className="text-lg text-gray-600 mb-6">
+              <strong>25+ Hospital Partners</strong> providing comprehensive training and placement opportunities
+            </p>
+            <Link to="/contact" className="btn-primary">
+              Explore Partnership Opportunities
             </Link>
           </div>
         </div>
