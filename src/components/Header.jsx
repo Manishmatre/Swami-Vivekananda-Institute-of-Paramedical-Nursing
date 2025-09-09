@@ -55,9 +55,11 @@ const Header = () => {
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-orange-500 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">SV</span>
-              </div>
+              <img 
+                src="/src/assets/Swami_Vivekananda_Institute-logo.png" 
+                alt="Swami Vivekananda Institute Logo" 
+                className="w-12 h-12 object-contain"
+              />
               <div>
                 <h1 className="text-xl font-bold text-primary-700 leading-tight">
                   Swami Vivekananda Institute

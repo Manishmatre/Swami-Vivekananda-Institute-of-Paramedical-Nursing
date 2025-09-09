@@ -10,9 +10,11 @@ const Footer = () => {
           {/* Institute Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-orange-500 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold">SV</span>
-              </div>
+              <img 
+                src="/src/assets/Swami_Vivekananda_Institute-logo.png" 
+                alt="Swami Vivekananda Institute Logo" 
+                className="w-10 h-10 object-contain"
+              />
               <div>
                 <h3 className="text-lg font-bold">Swami Vivekananda Institute</h3>
                 <p className="text-sm text-gray-300">of Paramedical & Nursing</p>
