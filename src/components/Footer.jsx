@@ -113,7 +113,15 @@ const Footer = () => {
               © 2024 Swami Vivekananda Institute of Paramedical & Nursing. All rights reserved.
             </p>
             <p className="text-gray-300 text-sm flex items-center">
-              Made with <Heart size={16} className="text-red-500 mx-1 animate-pulse" /> for Healthcare Education
+              Made with <Heart size={16} className="text-red-500 mx-1 animate-pulse" /> by 
+              <a 
+                href="https://arionextech.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="ml-1 text-orange-400 hover:text-orange-300 font-medium transition-colors hover:underline"
+              >
+                ArionexTech Software
+              </a>
             </p>
           </div>
         </div>
