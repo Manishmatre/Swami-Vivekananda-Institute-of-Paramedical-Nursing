@@ -12,61 +12,8 @@ const Results = () => {
   const [searchResult, setSearchResult] = useState(null)
   const [isSearching, setIsSearching] = useState(false)
 
-  // Sample student results data
-  const sampleResults = [
-    {
-      rollNumber: 'SVI2023001',
-      name: 'Priya Sharma',
-      course: 'General Nursing and Midwifery (GNM)',
-      batch: '2021-2024',
-      semester: 'Final Year',
-      examDate: '2024-05-15',
-      result: 'Pass',
-      percentage: 78.5,
-      grade: 'First Class',
-      subjects: [
-        { name: 'Medical Surgical Nursing', marks: 82, total: 100, status: 'Pass' },
-        { name: 'Community Health Nursing', marks: 76, total: 100, status: 'Pass' },
-        { name: 'Mental Health Nursing', marks: 79, total: 100, status: 'Pass' },
-        { name: 'Midwifery & Obstetrical Nursing', marks: 75, total: 100, status: 'Pass' },
-        { name: 'Pediatric Nursing', marks: 81, total: 100, status: 'Pass' }
-      ]
-    },
-    {
-      rollNumber: 'SVI2023002',
-      name: 'Rahul Kumar',
-      course: 'Auxiliary Nurse Midwifery (ANM)',
-      batch: '2022-2024',
-      semester: 'Second Year',
-      examDate: '2024-05-15',
-      result: 'Pass',
-      percentage: 85.2,
-      grade: 'First Class with Distinction',
-      subjects: [
-        { name: 'Primary Health Care Nursing', marks: 88, total: 100, status: 'Pass' },
-        { name: 'Child Health Nursing', marks: 84, total: 100, status: 'Pass' },
-        { name: 'Health Promotion', marks: 87, total: 100, status: 'Pass' },
-        { name: 'Community Health Nursing', marks: 82, total: 100, status: 'Pass' }
-      ]
-    },
-    {
-      rollNumber: 'SVI2023003',
-      name: 'Anita Das',
-      course: 'Medical Laboratory Technology (MLT)',
-      batch: '2022-2024',
-      semester: 'Second Year',
-      examDate: '2024-05-15',
-      result: 'Pass',
-      percentage: 72.8,
-      grade: 'Second Class',
-      subjects: [
-        { name: 'Clinical Pathology', marks: 75, total: 100, status: 'Pass' },
-        { name: 'Clinical Microbiology', marks: 71, total: 100, status: 'Pass' },
-        { name: 'Clinical Biochemistry', marks: 74, total: 100, status: 'Pass' },
-        { name: 'Hematology', marks: 70, total: 100, status: 'Pass' }
-      ]
-    }
-  ]
+  // Student results data - Currently empty as institute started in 2025
+  const sampleResults = []
 
   const handleSearch = () => {
     setIsSearching(true)
@@ -107,7 +54,7 @@ const Results = () => {
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute inset-0">
           <img 
-            src="/src/assets/hero_image.jpeg" 
+            src="/assets/hero_image.jpeg" 
             alt="Swami Vivekananda Institute" 
             className="w-full h-full object-cover"
           />
@@ -117,7 +64,7 @@ const Results = () => {
         <div className="relative container-max text-center" ref={heroRef}>
           <h1 className={`text-5xl md:text-6xl font-bold mb-6 fade-in-up ${heroVisible ? 'animate' : ''}`}>Student Results</h1>
           <p className={`text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed fade-in-up ${heroVisible ? 'animate' : ''} stagger-1`}>
-            Check your examination results and academic performance with instant access to detailed marksheets.
+            Results portal for our students. As a newly established institute (2025), examination results will be available after the first academic session.
           </p>
         </div>
       </section>

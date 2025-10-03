@@ -110,7 +110,7 @@ const Footer = () => {
         <div className={`border-t border-primary-700 mt-8 pt-8 fade-in-up ${footerVisible ? 'animate' : ''} stagger-5`}>
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-300 text-sm text-center md:text-left">
-              © 2024 Swami Vivekananda Institute of Paramedical & Nursing. All rights reserved.
+              © 2025 Swami Vivekananda Institute of Paramedical & Nursing. All rights reserved.
             </p>
             <p className="text-gray-300 text-sm flex items-center">
               Made with <Heart size={16} className="text-red-500 mx-1 animate-pulse" /> by 

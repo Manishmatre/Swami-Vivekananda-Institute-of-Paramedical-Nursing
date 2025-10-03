@@ -23,34 +23,34 @@ const About = () => {
   const [visionRef, visionVisible] = useScrollAnimation(0.2)
   const milestones = [
     {
-      year: "2010",
+      year: "2025",
       title: "Foundation",
-      description: "Established with a vision to provide quality healthcare education"
+      description: "Established with a vision to provide quality healthcare education and modern facilities"
     },
     {
-      year: "2012",
-      title: "AICTE Approval",
-      description: "Received official recognition and approval from AICTE"
+      year: "2025",
+      title: "Infrastructure Development",
+      description: "Built state-of-the-art laboratories, modern classrooms, and advanced simulation centers"
     },
     {
-      year: "2015",
+      year: "2025",
+      title: "AICTE Application",
+      description: "Applied for official recognition and approval from AICTE for all programs"
+    },
+    {
+      year: "2025",
       title: "Hospital Partnerships",
-      description: "Established partnerships with 25+ leading hospitals"
+      description: "Established partnerships with leading hospitals for clinical training"
     },
     {
-      year: "2018",
-      title: "Modern Infrastructure",
-      description: "Inaugurated state-of-the-art laboratories and facilities"
+      year: "2025",
+      title: "Digital Learning Platform",
+      description: "Integrated advanced digital learning platforms and e-library systems"
     },
     {
-      year: "2020",
-      title: "Digital Learning",
-      description: "Integrated advanced digital learning platforms"
-    },
-    {
-      year: "2024",
-      title: "Excellence Award",
-      description: "Recognized as the Best Paramedical Institute in the region"
+      year: "2025",
+      title: "First Batch Admission",
+      description: "Successfully launched with the first batch of dedicated healthcare students"
     }
   ]
 
@@ -104,8 +104,8 @@ const About = () => {
         <div className="relative container-max text-center" ref={heroRef}>
           <h1 className={`text-5xl md:text-6xl font-bold mb-6 fade-in-up ${heroVisible ? 'animate' : ''}`}>About Our Institute</h1>
           <p className={`text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed fade-in-up ${heroVisible ? 'animate' : ''} stagger-1`}>
-            Dedicated to excellence in healthcare education since 2010, 
-            inspired by Swami Vivekananda's vision of holistic education.
+A new beginning in healthcare education starting 2025, 
+            inspired by Swami Vivekananda's vision of holistic education and modern learning.
           </p>
         </div>
       </section>
@@ -185,9 +185,9 @@ const About = () => {
                 Our Story
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Founded in 2010 with a vision to create world-class healthcare professionals, 
-                Swami Vivekananda Institute of Paramedical & Nursing has been at the forefront 
-                of medical education excellence.
+                Founded in 2025 with a vision to create world-class healthcare professionals, 
+                Swami Vivekananda Institute of Paramedical & Nursing represents a new era 
+                of medical education excellence with modern facilities and innovative teaching methods.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
                 Inspired by Swami Vivekananda's philosophy of "Education is the manifestation 
@@ -195,8 +195,8 @@ const About = () => {
                 professionals, but compassionate healers who serve humanity with dedication.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Our institute has grown from a small nursing college to a comprehensive 
-                healthcare education hub, producing over 500 graduates who now serve 
+                As a newly established institute, we are committed to building a comprehensive 
+                healthcare education hub that will produce skilled graduates who will serve 
                 in leading hospitals and healthcare institutions across the country.
               </p>
             </div>
@@ -208,8 +208,8 @@ const About = () => {
               />
               <div className="absolute -bottom-6 -left-6 bg-orange-500 text-white p-6 rounded-xl shadow-xl">
                 <div className="text-center">
-                  <div className="text-3xl font-bold">15+</div>
-                  <div className="text-sm opacity-90">Years of Excellence</div>
+                  <div className="text-3xl font-bold">2025</div>
+                  <div className="text-sm opacity-90">New Beginning</div>
                 </div>
               </div>
             </div>

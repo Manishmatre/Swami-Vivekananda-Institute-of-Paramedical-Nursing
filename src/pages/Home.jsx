@@ -30,10 +30,10 @@ const Home = () => {
   const [partnershipsRef, partnershipsVisible] = useScrollAnimation(0.2)
   const [quoteRef, quoteVisible] = useScrollAnimation(0.3)
   
-  const [count1, startCount1] = useCountUp(1000, 2000)
-  const [count2, startCount2] = useCountUp(15, 2000)
-  const [count3, startCount3] = useCountUp(25, 2000)
-  const [count4, startCount4] = useCountUp(90, 2000)
+  const [count1, startCount1] = useCountUp(100, 2000)
+  const [count2, startCount2] = useCountUp(5, 2000)
+  const [count3, startCount3] = useCountUp(10, 2000)
+  const [count4, startCount4] = useCountUp(100, 2000)
   
   const counters = [count1, count2, count3, count4]
   const startCounters = [startCount1, startCount2, startCount3, startCount4]
@@ -67,10 +67,10 @@ const Home = () => {
   ]
 
   const stats = [
-    { number: 1000, label: "Students Enrolled", suffix: "+" },
-    { number: 15, label: "Course Programs", suffix: "+" },
-    { number: 25, label: "Expert Faculty", suffix: "+" },
-    { number: 90, label: "Placement Rate", suffix: "%" }
+    { number: 100, label: "Admission Capacity", suffix: "+" },
+    { number: 5, label: "Course Programs", suffix: "+" },
+    { number: 10, label: "Expert Faculty", suffix: "+" },
+    { number: 100, label: "Modern Facilities", suffix: "%" }
   ]
 
   const courses = [
@@ -116,27 +116,27 @@ const Home = () => {
   const testimonials = [
     {
       name: "Priya Sharma",
-      course: "DMLT Graduate 2023",
+      course: "DMLT First Batch",
       image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
       rating: 5,
-      text: "The practical training at Swami Vivekananda Institute was exceptional. I'm now working as a Lab Technician at Apollo Hospital with excellent salary package.",
-      position: "Lab Technician, Apollo Hospital"
+      text: "I'm excited to be part of the inaugural batch at Swami Vivekananda Institute. The modern facilities and experienced faculty give me confidence in my career!",
+      position: "DMLT Program Student"
     },
     {
       name: "Rahul Kumar",
-      course: "BPT Graduate 2022",
+      course: "BPT Enrolled 2025",
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
       rating: 5,
-      text: "The faculty support and modern infrastructure helped me excel in physiotherapy. Now I run my own clinic and treat 50+ patients daily.",
-      position: "Physiotherapist & Clinic Owner"
+      text: "The state-of-the-art physiotherapy lab and modern equipment impressed me during my visit. I'm confident this institute will provide excellent training.",
+      position: "BPT Program Student"
     },
     {
       name: "Anita Das",
-      course: "ANM Graduate 2023",
+      course: "ANM New Admission",
       image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
       rating: 5,
-      text: "The nursing program prepared me well for real-world healthcare challenges. I'm proud to serve in community healthcare at government hospital.",
-      position: "Staff Nurse, District Hospital"
+      text: "The comprehensive curriculum and modern teaching methods at this new institute are exactly what I was looking for in my nursing education journey.",
+      position: "ANM Program Student"
     }
   ]
 
@@ -144,23 +144,23 @@ const Home = () => {
   const achievements = [
     {
       icon: <Trophy className="w-8 h-8 text-orange-500" />,
-      title: "Best Institute Award 2023",
-      description: "Recognized as the Best Paramedical Institute in West Bengal"
+      title: "New Institute 2025",
+      description: "Newly established with modern facilities and innovative curriculum"
     },
     {
       icon: <Award className="w-8 h-8 text-orange-500" />,
-      title: "100% Placement Record",
-      description: "Consistent 100% placement rate for the last 3 years"
+      title: "State-of-the-Art Facilities",
+      description: "Brand new laboratories, simulation centers, and digital learning platforms"
     },
     {
       icon: <BookOpen className="w-8 h-8 text-orange-500" />,
-      title: "AICTE Approved",
-      description: "All programs approved by AICTE and Sikkim Skill University"
+      title: "AICTE Application Submitted",
+      description: "Applied for official recognition from AICTE and regulatory bodies"
     },
     {
       icon: <Target className="w-8 h-8 text-orange-500" />,
-      title: "1000+ Alumni Success",
-      description: "Over 1000 successful healthcare professionals graduated"
+      title: "First Batch Enrollment",
+      description: "Now accepting applications for our inaugural batch of students"
     }
   ]
 
@@ -409,7 +409,7 @@ const Home = () => {
               What Our Students Say
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Hear from our successful graduates who are now making a difference in healthcare industry.
+              Hear from our first batch of students who chose to begin their healthcare journey with us.
             </p>
           </div>
 
