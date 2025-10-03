@@ -14,7 +14,7 @@ const Footer = () => {
           <div className={`space-y-4 fade-in-up ${footerVisible ? 'animate' : ''} stagger-1`}>
             <div className="flex items-center space-x-3">
               <img 
-                src="/src/assets/Swami_Vivekananda_Institute-logo.png" 
+                src="/assets/Swami_Vivekananda_Institute-logo.png" 
                 alt="Swami Vivekananda Institute Logo" 
                 className="w-10 h-10 object-contain"
               />

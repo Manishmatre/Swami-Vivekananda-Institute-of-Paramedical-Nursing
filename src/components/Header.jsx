@@ -57,7 +57,7 @@ const Header = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3">
               <img 
-                src="/src/assets/Swami_Vivekananda_Institute-logo.png" 
+                src="/assets/Swami_Vivekananda_Institute-logo.png" 
                 alt="Swami Vivekananda Institute Logo" 
                 className="w-12 h-12 object-contain"
               />

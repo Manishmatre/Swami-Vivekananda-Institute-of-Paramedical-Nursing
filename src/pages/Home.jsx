@@ -199,7 +199,7 @@ const Home = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/src/assets/hero_image.jpeg" 
+            src="/assets/hero_image.jpeg" 
             alt="Swami Vivekananda Institute - Healthcare Education" 
             className="w-full h-full object-cover"
           />
@@ -264,7 +264,7 @@ const Home = () => {
                 {/* Main image container with mixed borders */}
                 <div className="relative bg-white/10 backdrop-blur-sm p-3 rounded-2xl border border-white/20">
                   <img 
-                    src="/src/assets/hero-image.png" 
+                    src="/assets/hero-image.png" 
                     alt="Swami Vivekananda Institute Healthcare Education" 
                     className="rounded-xl shadow-2xl relative z-10"
                   />
