@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Phone, Mail, MapPin } from 'lucide-react'
+import { Menu, X, Phone, Mail, MapPin, ChevronDown, User, FileText, Calendar, BookOpen } from 'lucide-react'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isStudentDropdownOpen, setIsStudentDropdownOpen] = useState(false)
   const location = useLocation()
 
   useEffect(() => {
@@ -15,6 +16,17 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isStudentDropdownOpen && !event.target.closest('.student-dropdown')) {
+        setIsStudentDropdownOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [isStudentDropdownOpen])
+
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about' },
@@ -22,8 +34,14 @@ const Header = () => {
     { name: 'Admissions', href: '/admissions' },
     { name: 'Faculty', href: '/faculty' },
     { name: 'Gallery', href: '/gallery' },
-    { name: 'Results', href: '/results' },
     { name: 'Contact', href: '/contact' },
+  ]
+
+  const studentLinks = [
+    { name: 'Student Results', href: '/results', icon: <FileText size={16} /> },
+    { name: 'Academic Calendar', href: '/calendar', icon: <Calendar size={16} /> },
+    { name: 'Student Portal', href: '/student-portal', icon: <User size={16} /> },
+    { name: 'Library Resources', href: '/library', icon: <BookOpen size={16} /> },
   ]
 
   return (
@@ -43,7 +61,7 @@ const Header = () => {
           </div>
           <div className="flex items-center space-x-1">
             <MapPin size={14} />
-            <span>Excellence in Healthcare Education Since 2010</span>
+            <span>Excellence in Healthcare Education Since 2025</span>
           </div>
         </div>
       </div>
@@ -84,6 +102,42 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
+              
+              {/* Student Dropdown */}
+              <div className="relative student-dropdown">
+                <button
+                  onClick={() => setIsStudentDropdownOpen(!isStudentDropdownOpen)}
+                  className={`font-medium transition-colors duration-200 hover:text-primary-500 flex items-center space-x-1 ${
+                    studentLinks.some(link => location.pathname === link.href)
+                      ? 'text-primary-500 border-b-2 border-primary-500 pb-1'
+                      : 'text-gray-700'
+                  }`}
+                >
+                  <span>Students</span>
+                  <ChevronDown size={16} className={`transition-transform duration-200 ${isStudentDropdownOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                {/* Dropdown Menu */}
+                {isStudentDropdownOpen && (
+                  <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                    {studentLinks.map((item) => (
+                      <Link
+                        key={item.name}
+                        to={item.href}
+                        onClick={() => setIsStudentDropdownOpen(false)}
+                        className={`flex items-center space-x-3 px-4 py-3 text-sm transition-colors duration-200 hover:bg-primary-50 hover:text-primary-600 ${
+                          location.pathname === item.href
+                            ? 'text-primary-600 bg-primary-50'
+                            : 'text-gray-700'
+                        }`}
+                      >
+                        <span className="text-primary-500">{item.icon}</span>
+                        <span>{item.name}</span>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             </nav>
 
             {/* CTA Button */}
@@ -121,6 +175,29 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
+              
+              {/* Student Section in Mobile */}
+              <div className="pt-2">
+                <div className="px-3 py-2 text-sm font-semibold text-gray-500 uppercase tracking-wider">
+                  Student Services
+                </div>
+                {studentLinks.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`flex items-center space-x-3 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
+                      location.pathname === item.href
+                        ? 'text-primary-500 bg-primary-50'
+                        : 'text-gray-700 hover:text-primary-500 hover:bg-gray-50'
+                    }`}
+                  >
+                    <span className="text-primary-500">{item.icon}</span>
+                    <span>{item.name}</span>
+                  </Link>
+                ))}
+              </div>
+              
               <div className="pt-4 pb-2">
                 <Link
                   to="/admissions"

@@ -12,6 +12,9 @@ import Faculty from './pages/Faculty'
 import Gallery from './pages/Gallery'
 import Results from './pages/Results'
 import Contact from './pages/Contact'
+import Calendar from './pages/Calendar'
+import StudentPortal from './pages/StudentPortal'
+import Library from './pages/Library'
 
 function App() {
   return (
@@ -29,6 +32,9 @@ function App() {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/results" element={<Results />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/calendar" element={<Calendar />} />
+            <Route path="/student-portal" element={<StudentPortal />} />
+            <Route path="/library" element={<Library />} />
           </Routes>
         </main>
         <Footer />
