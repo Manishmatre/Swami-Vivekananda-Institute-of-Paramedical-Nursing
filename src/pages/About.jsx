@@ -15,6 +15,7 @@ import {
   Shield
 } from 'lucide-react'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import SEO from '../components/SEO'
 
 const About = () => {
   const [heroRef, heroVisible] = useScrollAnimation(0.2)
@@ -88,7 +89,14 @@ const About = () => {
   ]
 
   return (
-    <div className="min-h-screen">
+    <>
+      <SEO 
+        title="About Us - Our Mission, Vision & Values"
+        description="Learn about Swami Vivekananda Institute of Paramedical & Nursing - our mission, vision, values, and journey since 2025. Dedicated to excellence in healthcare education with modern facilities and experienced faculty."
+        keywords="about SVIPN, paramedical institute history, nursing college mission, healthcare education vision, medical institute values, AICTE approved institute, West Bengal healthcare education"
+        url="https://svipn.netlify.app/about"
+      />
+      <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-600 to-primary-800 text-white section-padding">
         <div className="absolute inset-0 bg-black opacity-50"></div>
@@ -356,7 +364,8 @@ A new beginning in healthcare education starting 2025,
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   )
 }
 

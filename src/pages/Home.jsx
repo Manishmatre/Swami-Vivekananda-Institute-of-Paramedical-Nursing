@@ -3,23 +3,18 @@ import { Link } from 'react-router-dom'
 import { 
   Users, 
   Award, 
-  Building2, 
-  TrendingUp, 
-  Stethoscope, 
-  GraduationCap, 
-  Heart, 
-  Shield,
-  ArrowRight,
+  BookOpen, 
+  TrendingUp,
+  Trophy,
+  Target,
   CheckCircle,
   Star,
   Quote,
   MapPin,
-  Calendar,
-  Trophy,
-  BookOpen,
-  Target
+  Calendar
 } from 'lucide-react'
 import { useScrollAnimation, useCountUp } from '../hooks/useScrollAnimation'
+import SEO from '../components/SEO'
 
 const Home = () => {
   const [statsRef, statsVisible] = useScrollAnimation(0.3)
@@ -193,7 +188,14 @@ const Home = () => {
   ]
 
   return (
-    <div className="min-h-screen">
+    <>
+      <SEO 
+        title="Best Paramedical & Nursing Institute in West Bengal"
+        description="Leading paramedical and nursing institute offering DMLT, BMLT, GNM, ANM, BPT courses with 100% placement assistance. Modern facilities, experienced faculty, and hands-on clinical training in West Bengal."
+        keywords="paramedical institute West Bengal, nursing college Siliguri, DMLT course, BMLT course, GNM nursing, ANM course, BPT physiotherapy, medical laboratory technology, healthcare education, clinical training, nursing education, paramedical training, medical courses West Bengal, healthcare institute"
+        url="https://svipn.netlify.app/"
+      />
+      <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white overflow-hidden">
         {/* Background Image */}
@@ -569,7 +571,8 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   )
 }
 

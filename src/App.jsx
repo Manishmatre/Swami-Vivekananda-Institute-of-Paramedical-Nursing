@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
@@ -18,29 +19,31 @@ import Library from './pages/Library'
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="min-h-screen bg-gray-50">
-        <Header />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/courses" element={<Courses />} />
-            <Route path="/admissions" element={<Admissions />} />
-            <Route path="/faculty" element={<Faculty />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/results" element={<Results />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/calendar" element={<Calendar />} />
-            <Route path="/student-portal" element={<StudentPortal />} />
-            <Route path="/library" element={<Library />} />
-          </Routes>
-        </main>
-        <Footer />
-        <FloatingActions />
-      </div>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <ScrollToTop />
+        <div className="min-h-screen bg-gray-50">
+          <Header />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/courses" element={<Courses />} />
+              <Route path="/admissions" element={<Admissions />} />
+              <Route path="/faculty" element={<Faculty />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/results" element={<Results />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/calendar" element={<Calendar />} />
+              <Route path="/student-portal" element={<StudentPortal />} />
+              <Route path="/library" element={<Library />} />
+            </Routes>
+          </main>
+          <Footer />
+          <FloatingActions />
+        </div>
+      </Router>
+    </HelmetProvider>
   )
 }
 
