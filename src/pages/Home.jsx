@@ -124,7 +124,7 @@ const Home = () => {
     {
       name: "Rahul Kumar",
       course: "BPT Enrolled 2025",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
       rating: 5,
       text: "The state-of-the-art physiotherapy lab and modern equipment impressed me during my visit. I'm confident this institute will provide excellent training.",
       position: "BPT Program Student"
