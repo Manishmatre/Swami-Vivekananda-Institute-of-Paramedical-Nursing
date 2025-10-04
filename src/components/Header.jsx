@@ -88,7 +88,7 @@ const Header = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
+            <nav className="hidden lg:flex items-center space-x-6">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
@@ -119,7 +119,7 @@ const Header = () => {
                 
                 {/* Dropdown Menu */}
                 {isStudentDropdownOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50">
                     {studentLinks.map((item) => (
                       <Link
                         key={item.name}
@@ -140,12 +140,6 @@ const Header = () => {
               </div>
             </nav>
 
-            {/* CTA Button */}
-            <div className="hidden lg:flex items-center space-x-4">
-              <Link to="/admissions" className="btn-primary">
-                Apply Now
-              </Link>
-            </div>
 
             {/* Mobile menu button */}
             <button
@@ -198,15 +192,6 @@ const Header = () => {
                 ))}
               </div>
               
-              <div className="pt-4 pb-2">
-                <Link
-                  to="/admissions"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block w-full text-center btn-primary"
-                >
-                  Apply Now
-                </Link>
-              </div>
             </div>
           </div>
         )}
