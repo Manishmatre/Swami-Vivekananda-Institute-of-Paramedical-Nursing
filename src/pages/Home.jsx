@@ -11,7 +11,11 @@ import {
   Star,
   Quote,
   MapPin,
-  Calendar
+  Calendar,
+  Building2,
+  Stethoscope,
+  ArrowRight,
+  Heart
 } from 'lucide-react'
 import { useScrollAnimation, useCountUp } from '../hooks/useScrollAnimation'
 import SEO from '../components/SEO'
